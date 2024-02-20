@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import filedialog
-from Programa import Programa
+from Colegio import Colegio
 
 def cargar_archivo(extension):
     root = tk.Tk(); root.attributes('-alpha',0.01)
@@ -20,7 +20,7 @@ def cargar_archivo(extension):
     return filename 
     
 def menu():
-    programa = Programa()
+    programa = Colegio()
     while True:
         print("\nMenú Principal")
         print("1. Cargar Estudiantes")
@@ -41,7 +41,6 @@ def menu():
             if filename:
                 programa.ingresar_calificaciones(filename)
         elif opcion == '3':
-            programa.listar_estudiantes()
             programa.generar_reporte_general()
         elif opcion == '4':
             programa.generar_reporte_aprobacion()

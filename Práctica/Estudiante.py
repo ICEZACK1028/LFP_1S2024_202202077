@@ -1,5 +1,5 @@
 class Estudiante:
-    def _init_(self, carnet, nombre):
+    def __init__(self, carnet, nombre):
         self.carnet = carnet
         self.nombre = nombre
         self.calificaciones = []
@@ -9,7 +9,7 @@ class Estudiante:
 
     def calcular_promedio(self):
         if self.calificaciones:
-            return sum(self.calificaciones) / len(self.calificaciones)
+            return round(sum(self.calificaciones) / len(self.calificaciones), 2)
         else:
             return 0
 
