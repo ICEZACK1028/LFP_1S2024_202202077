@@ -20,6 +20,7 @@ class Colegio:
                     if estudiante.carnet == carnet:
                         estudiante.agregar_calificaciones(calificaciones)
                         break
+        print("Calificaciones ingresadas correctamente...")
 
     def generar_reporte_general(self):
         with open("reporte_general.html", 'w') as file:

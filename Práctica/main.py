@@ -22,13 +22,17 @@ def cargar_archivo(extension):
 def menu():
     programa = Colegio()
     while True:
-        print("\nMenú Principal")
-        print("1. Cargar Estudiantes")
-        print("2. Ingresar Calificaciones")
-        print("3. Reporte general de estudiantes")
-        print("4. Reporte de aprobación de estudiantes")
-        print("5. Top 3 estudiantes con mejor promedio")
-        print("6. Salir")
+        print()
+        print("-" * 45)
+        print("|{:^43}|".format("MENÚ PRINCIPAL"))
+        print("-" * 45)
+        print("|{:<43}|".format("1. Cargar Estudiantes"))
+        print("|{:<43}|".format("2. Ingresar Calificaciones"))
+        print("|{:<43}|".format("3. Reporte general de estudiantes"))
+        print("|{:<43}|".format("4. Reporte de aprobación de estudiantes"))
+        print("|{:<43}|".format("5. Top 3 estudiantes con mejor promedio"))
+        print("|{:<43}|".format("6. Salir"))
+        print("-" * 45)
 
         opcion = input("Seleccione una opción: ")
 
@@ -38,8 +42,10 @@ def menu():
                 programa.cargar_estudiantes(filename)
         elif opcion == '2':
             filename = cargar_archivo("cali")
-            if filename:
+            if filename and programa.estudiantes:
                 programa.ingresar_calificaciones(filename)
+            else:
+                print("No hay estudiantes cargados...")
         elif opcion == '3':
             programa.generar_reporte_general()
         elif opcion == '4':
