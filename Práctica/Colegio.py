@@ -21,6 +21,18 @@ class Colegio:
                         estudiante.agregar_calificaciones(calificaciones)
                         break
         print("Calificaciones ingresadas correctamente...")
+    
+    def mostrar_estudiantes_inexistentes(self, filename):
+        carnet_estudiantes = []
+        with open(filename, 'r') as file:
+            for line in file:
+                carnet, calificaciones = line.strip().split(':')
+                carnet_estudiantes.append(carnet)
+            
+        inexistentes = [carnet for carnet in carnet_estudiantes if carnet not in [estudiante.carnet for estudiante in self.estudiantes]]
+
+        for carnet_inexistente in inexistentes:
+            print(f"El estudiante con carnet {carnet_inexistente} no existe en el sistema.")
 
     def generar_reporte_general(self):
         with open("reporte_general.html", 'w') as file:
@@ -59,7 +71,7 @@ class Colegio:
         print("Reporte de aprobación generado correctamente.")
 
     def generar_top_tres(self):
-        sorted_estudiantes = sorted(self.estudiantes, key=lambda x: x.calcular_promedio(), reverse=True)[:3]
+        sorted_estudiantes = self.ordenar_por_promedio()[:3]
         with open("top_tres.html", 'w') as file:
             file.write("<html><head><style>")
             file.write("body { font-family: Arial, sans-serif; }")
@@ -72,3 +84,16 @@ class Colegio:
                 file.write(f"<p><strong>Promedio:</strong> {estudiante.calcular_promedio()}</p><br>")
             file.write("</body></html>")
         print("Top 3 generado correctamente.")
+
+
+    def ordenar_por_promedio(self):
+        estudiantes = self.estudiantes[:]
+        n = len(estudiantes)
+        for i in range(n):
+            max_idx = i
+            for j in range(i+1, n):
+                if estudiantes[j].calcular_promedio() > estudiantes[max_idx].calcular_promedio():
+                    max_idx = j
+            estudiantes[i], estudiantes[max_idx] = estudiantes[max_idx], estudiantes[i]
+            
+        return estudiantes

@@ -44,6 +44,7 @@ def menu():
             filename = cargar_archivo("cali")
             if filename and programa.estudiantes:
                 programa.ingresar_calificaciones(filename)
+                programa.mostrar_estudiantes_inexistentes(filename)
             else:
                 print("No hay estudiantes cargados...")
         elif opcion == '3':
