@@ -78,7 +78,6 @@ class GUI(tk.Tk):
         else:
             convertidor_json = ConvertidorJSON(tokens_lexemas)
             json = convertidor_json.convertir_json()
-            print("inicio_json",json)
             texto_html = convertidor_html.traducir_a_html(json)
             self.output_text.delete(1.0, tk.END)
             self.output_text.insert(tk.END, texto_html)
