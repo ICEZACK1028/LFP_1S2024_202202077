@@ -1,4 +1,6 @@
 from convertidor_json import ConvertidorJSON
+import webbrowser
+import os
 
 class ConvertidorHTML:
     def __init__(self):
@@ -69,6 +71,8 @@ class ConvertidorHTML:
         with open('Salida_HTML.html', 'w', encoding='utf-8') as f:
             f.write(html)
 
+        ruta_absoluta = os.path.abspath('Salida_HTML.html')
+        webbrowser.open('file://' + ruta_absoluta)
         return html
 
     def generar_reporte_tokens(self, tokens):
