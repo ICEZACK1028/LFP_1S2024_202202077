@@ -148,7 +148,7 @@ class ConvertidorHTML:
         html += "<h1 style='text-align: center;'>Reporte de caracteres no permitidos</h1>\n"
         html += "<table border='1'>\n"
         html += "<tr style='color: white; background-color: black'>\n"
-        html += "<th>Caracter/Token</th>\n"
+        html += "<th>Caracter/Lexema</th>\n"
         html += "<th>Línea</th>\n"
         html += "<th>Columna</th>\n"
         html += "</tr>\n"

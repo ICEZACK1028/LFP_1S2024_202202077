@@ -11,33 +11,42 @@ class GUI(tk.Tk):
         self.title("Traductor")
         self.geometry("1466x868")
         self.crear_estructura()
-        self.configure(bg="mint cream")
+        self.configure(bg="#F5F7F8")
 
     def crear_estructura(self):
-        title = tk.Label(self, text="Traductor", font=("Arial", 30), bg="mint cream")
+        title = tk.Label(self, text="Traductor", font=("Arial", 30), fg="#0F2B46", bg="#F5F7F8")
         title.grid(row=0, column=0, columnspan=2, padx=10, pady=5)
 
-        input_label = tk.Label(self, text="Texto de Entrada:", font=("Arial", 12), bg="mint cream")
-        input_label.grid(row=2, column=0, sticky="w", padx=10, pady=5)
+        self.insert_line()
 
-        output_label = tk.Label(self, text="Texto de Salida:", font=("Arial", 12), bg="mint cream")
-        output_label.grid(row=2, column=1, sticky="w", padx=10, pady=5)
+        input_label = tk.Label(self, text="Texto de Entrada:", font=("Arial", 12, "bold"), fg="#0F2B46", bg="#F5F7F8")
+        input_label.grid(row=3, column=0, sticky="w", padx=10, pady=5)
 
-        self.input_text = tk.Text(self, height=35, width=88, highlightbackground='gray90', highlightthickness=2)
-        self.input_text.grid(row=3, column=0, padx=10, pady=5)
+        output_label = tk.Label(self, text="Texto de Salida:", font=("Arial", 12, "bold"), fg="#0F2B46", bg="#F5F7F8")
+        output_label.grid(row=3, column=1, sticky="w", padx=10, pady=5)
 
-        self.output_text = tk.Text(self, height=35, width=88, highlightbackground='gray90', highlightthickness=2)
-        self.output_text.grid(row=3, column=1, padx=10, pady=5)
+        self.input_text = tk.Text(self, height=35, width=88, highlightbackground='gray90', highlightthickness=2, relief=tk.FLAT)
+        self.input_text.grid(row=4, column=0, padx=10, pady=5)
 
-        add_file_button = tk.Button(self, text="Agregar Archivo", command=self.add_file, bg="cadet blue", fg="white", font=("Arial", 12))
-        add_file_button.grid(row=1, column=0, columnspan=1, padx=10, pady=5)
+        self.output_text = tk.Text(self, height=35, width=88, highlightbackground='gray90', highlightthickness=2, relief=tk.FLAT)
+        self.output_text.grid(row=4, column=1, padx=10, pady=5)
 
-        translate_button = tk.Button(self, text="Traducir", command=self.analizar_archivo, bg="cadet blue", fg="white", font=("Arial", 12)) 
-        translate_button.grid(row=4, column=0, columnspan=1, padx=10, pady=5)
+        add_file_button = tk.Button(self, text="Agregar Archivo", command=self.add_file, bg="#006494", fg="white", font=("Arial", 12,"bold"), relief=tk.FLAT)
+        add_file_button.grid(row=2, column=0, columnspan=1, padx=10, pady=5)
 
-        translate_button = tk.Button(self, text="Generar Grafo", command=self.generar_grafo, bg="cadet blue", fg="white", font=("Arial", 12)) 
-        translate_button.grid(row=4, column=1, columnspan=1, padx=10, pady=5)
+        translate_button = tk.Button(self, text="Traducir", command=self.analizar_archivo, bg="#006494", fg="white", font=("Arial", 12,"bold"), relief=tk.FLAT) 
+        translate_button.grid(row=5, column=0, columnspan=1, padx=10, pady=5)
 
+        translate_button = tk.Button(self, text="Generar Grafo", command=self.generar_grafo, bg="#037171", fg="white", font=("Arial", 12,"bold"), relief=tk.FLAT) 
+        translate_button.grid(row=5, column=1, columnspan=1, padx=10, pady=5)
+
+    def insert_line(self):
+        # Creating a Canvas widget to draw the line
+        canvas = tk.Canvas(self, width=1466, height=5, bg="#F5F7F8", highlightthickness=0)
+        canvas.grid(row=1, column=0, columnspan=4)
+
+        # Drawing a line on the canvas
+        canvas.create_line(5, 5, 1466, 5, fill="#E0E0E0", width=5)
 
     def add_file(self):
         root = tk.Tk()
@@ -45,7 +54,7 @@ class GUI(tk.Tk):
         root.attributes('-topmost',True)
         root.tk.eval(f'tk::PlaceWindow {root._w} center')
         root.withdraw()
-        filename = filedialog.askopenfilename(initialdir="/", title="Select a File", filetypes=[("txt files", "*.txt")])
+        filename = filedialog.askopenfilename(initialdir="/", title="Select a File")
 
         if not filename:
             root.destroy()
