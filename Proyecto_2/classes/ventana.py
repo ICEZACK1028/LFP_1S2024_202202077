@@ -1,6 +1,6 @@
 import tkinter as tk
 import webbrowser
-from tkinter import Toplevel, ttk, filedialog
+from tkinter import Toplevel, ttk, filedialog, messagebox
 from analizador import Analizador
 from convertidor_html import ConvertidorHTML
 from Parser import Parser
@@ -179,7 +179,7 @@ class GUI(tk.Tk):
             with open('arbol_derivacion.dot', 'w') as dot_file:
                 dot_file.write(self.generar_dot_arbol_derivacion(expresiones_cadena))
 
-            tk.messagebox.showinfo("Árbol de Derivaciones", "El árbol de derivaciones se ha generado exitosamente en formato DOT.")
+            messagebox.showinfo("Árbol de Derivaciones", "El árbol de derivaciones se ha generado exitosamente en formato DOT.")
 
     def generar_dot_arbol_derivacion(self,expresiones_cadena):
         dot_code = """
