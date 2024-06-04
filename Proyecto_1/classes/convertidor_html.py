@@ -31,7 +31,7 @@ class ConvertidorHTML:
                 html += f"<p style='text-align: {self.posiciones.get(parrafo['posicion'], parrafo['posicion'])}'>{parrafo['texto']}</p>\n"
             elif 'Texto' in elemento:
                 texto = elemento['Texto']
-                html += f"<span style='font-family: {texto['fuente']}; font-size: {texto['tamaño']}; color: {self.colores.get(texto['color'], texto['color'])}'>{texto['texto']}</span>\n"
+                html += f"<span style='font-family: {texto['fuente']}; font-size: {texto['tamaño']}px; color: {self.colores.get(texto['color'], texto['color'])}'>{texto['texto']}</span>\n"
             elif 'Codigo' in elemento:
                 codigo = elemento['Codigo']
                 html += f"<code style='text-align: {self.posiciones.get(codigo['posicion'], codigo['posicion'])}'>{codigo['texto']}</code>\n"

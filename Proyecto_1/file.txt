@@ -1,0 +1,72 @@
+Inicio:{
+	Cuerpo:[
+		Titulo:{
+			texto:"Este es un titulo";
+			posicion:"izquierda";
+			tamaño:"t1";
+			color:"rojo";
+		},
+		Fondo:{
+			color:"cyan";
+		},
+		Parrafo:{
+			texto:"Este es un parrafo de ejemplo.";
+			posicion:"izquierda";
+		},
+		Texto:{
+			fuente="Arial";
+			color="azul";
+			tamaño="11";
+			texto="jasjas";
+		},
+		Tabla:{
+			filas:"2";
+			columnas:"2";
+			elemento:{"fila":"1","columna":"1","Texto mostrado en fila 1 columna 1"};
+			elemento:{"fila":"1","columna":"2","Texto mostrado en fila 1 columna 2"};
+			elemento:{"fila":"2","columna":"1","Texto mostrado en fila 2 columna 1"};
+			elemento:{"fila":"2","columna":"2","Texto mostrado en fila 2 columna 2"};
+		},
+		Codigo:{
+			texto:"Muestra el texto con fuente de codigo de ordenador.";
+			posicion:"centro";
+		},
+		Negrita:{
+			texto:"Este texto aparecerá en negrita.";
+		},
+		Subrayado:{
+			texto:"Este texto aparecerá Subrayado.";
+		},
+		Tachado:{
+			texto:"Este texto aparecerá tachado.";
+		},
+		Cursiva:{
+			texto:"Este texto aparecerá en cursiva.";
+		},
+		Salto:{
+			cantidad:"5";
+		},
+		Tabla:{
+			filas:"4";
+			columnas:"3";
+			elemento:{"fila":"3","columna":"3","Texto mostrado en fila 3 columna 3"};
+			elemento:{"fila":"2","columna":"1","Texto mostrado en fila 2 columna 1"};
+			elemento:{"fila":"1","columna":"3","Texto mostrado en fila 1 columna 3"};
+			elemento:{"fila":"2","columna":"1","Texto mostrado ya modificado"};
+			elemento:{"fila":"2","columna":"2","Texto mostrado ya modificado 2"};
+		},
+		Salto:{
+			cantidad:"1";
+		},
+		Codigo:{
+			texto:"Muestra el texto con fuente de codigo de ordenador.";
+			posicion:"centro";
+		},
+		Negrita:{
+			texto:"Este texto 2 aparecerá en negrita.";
+		},
+	],
+	Encabezado:{
+		TituloPagina:"Ejemplo titulo";
+	}
+}
