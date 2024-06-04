@@ -10,14 +10,14 @@ import graphviz
 class GUI(tk.Tk):
     def __init__(self):
         super().__init__()
-        self.title("LFP - Proyecto 2")
+        self.title("Reconocimiento de Expresiones Regulares")
         self.geometry("1466x868")
         self.crear_estructura()
         self.configure(bg="#F5F7F8")
         self.filename = None
 
     def crear_estructura(self):
-        title = tk.Label(self, text="LFP - Proyecto 2", font=("Arial", 30), fg="#0F2B46", bg="#F5F7F8")
+        title = tk.Label(self, text="Expresiones Regulares", font=("Arial", 30), fg="#0F2B46", bg="#F5F7F8")
         title.grid(row=0, column=0, columnspan=2, padx=10, pady=5)
 
         self.insert_line()
